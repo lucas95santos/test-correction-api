@@ -15,6 +15,20 @@ class SchoolClassController {
       });
     }
   }
+
+  async index(request, response) {
+    try {
+      const schoolClasses = await SchoolClass.findAll();
+
+      return response.status(200).json({
+        schoolClasses,
+      });
+    } catch (err) {
+      return response.status(500).json({
+        error: 'Erro ao buscar turmas',
+      });
+    }
+  }
 }
 
 export default new SchoolClassController();

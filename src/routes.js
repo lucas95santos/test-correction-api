@@ -17,5 +17,6 @@ routes.post('/session', SessionController.store);
 routes.post('/users', UserController.store);
 // from here every route must have the authentication token
 routes.post('/classes', authMiddleware, SchoolClassController.store);
+routes.get('/classes', authMiddleware, SchoolClassController.index);
 
 export default routes;
