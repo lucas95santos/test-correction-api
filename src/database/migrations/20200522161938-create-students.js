@@ -1,7 +1,7 @@
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('school_classes', {
-      id: {
+    return queryInterface.createTable('students', {
+      registration: {
         type: Sequelize.STRING,
         allowNull: false,
         autoIncrement: false,
@@ -11,8 +11,16 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false,
       },
-      grade: {
+      email: {
         type: Sequelize.STRING,
+        allowNull: true,
+        unique: true,
+      },
+      schoolclass_id: {
+        type: Sequelize.STRING,
+        references: { model: 'school_classes', key: 'id' },
+        onUpdate: 'CASCADE',
+        onDelete: 'SET NULL',
         allowNull: false,
       },
       created_at: {
@@ -27,6 +35,6 @@ module.exports = {
   },
 
   down: (queryInterface) => {
-    return queryInterface.dropTable('school_classes');
+    return queryInterface.dropTable('students');
   },
 };
