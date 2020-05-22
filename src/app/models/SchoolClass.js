@@ -14,6 +14,10 @@ class SchoolClass extends Model {
 
     return this;
   }
+
+  static associate(models) {
+    this.hasMany(models.Student, { as: 'students' });
+  }
 }
 
 export default SchoolClass;

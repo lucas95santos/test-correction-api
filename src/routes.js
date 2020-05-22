@@ -20,8 +20,10 @@ routes.post('/users', UserController.store);
 // schooll classes routes
 routes.post('/classes', authMiddleware, SchoolClassController.store);
 routes.get('/classes', authMiddleware, SchoolClassController.index);
+routes.get('/classes/:id', authMiddleware, SchoolClassController.show);
 // students routes
 routes.post('/students', authMiddleware, StudentController.store);
 routes.get('/students', authMiddleware, StudentController.index);
+routes.get('/students/:registration', authMiddleware, StudentController.show);
 
 export default routes;

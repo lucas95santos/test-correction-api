@@ -13,12 +13,7 @@ class Student extends Model {
       }
     );
 
-    this.removeAttribute('id');
     return this;
-  }
-
-  static associate(models) {
-    this.belongsTo(models.SchoolClass, { foreignKey: 'schoolclass_id' });
   }
 }
 

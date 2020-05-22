@@ -1,6 +1,11 @@
 module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.createTable('students', {
+      id: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        autoIncrement: true,
+      },
       registration: {
         type: Sequelize.STRING,
         allowNull: false,
@@ -16,7 +21,7 @@ module.exports = {
         allowNull: true,
         unique: true,
       },
-      schoolclass_id: {
+      school_class_id: {
         type: Sequelize.STRING,
         references: { model: 'school_classes', key: 'id' },
         onUpdate: 'CASCADE',
