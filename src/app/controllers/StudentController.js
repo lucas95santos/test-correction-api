@@ -1,9 +1,31 @@
 import Student from '../models/Student';
+import SchoolClass from '../models/SchoolClass';
 
 class StudentController {
   async store(request, response) {
     try {
-      const { registration, name, email } = await Student.create(request.body);
+      const { registration, name, email, SchoolClassId } = await Student.create(
+        request.body
+      );
+
+      const schoolClass = await SchoolClass.findOne({
+        where: {
+          id: SchoolClassId,
+        },
+      });
+
+      if (schoolClass) {
+        await SchoolClass.update(
+          {
+            amount_students: schoolClass.amount_students + 1,
+          },
+          {
+            where: {
+              id: SchoolClassId,
+            },
+          }
+        );
+      }
 
       return response.status(201).json({
         registration,
@@ -11,7 +33,6 @@ class StudentController {
         email,
       });
     } catch (err) {
-      console.log(err);
       return response.status(400).json({
         error: 'Erro ao cadastrar aluno',
       });

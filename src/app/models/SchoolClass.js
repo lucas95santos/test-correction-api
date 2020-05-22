@@ -6,6 +6,7 @@ class SchoolClass extends Model {
       {
         name: Sequelize.STRING,
         grade: Sequelize.STRING,
+        amount_students: Sequelize.INTEGER,
       },
       {
         sequelize,
