@@ -52,9 +52,7 @@ class SchoolClassController {
         });
       }
 
-      return response.status(200).json({
-        schoolClass,
-      });
+      return response.status(200).json(schoolClass);
     } catch (err) {
       return response.status(500).json({
         error: 'Erro ao buscar turma',
