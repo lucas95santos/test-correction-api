@@ -19,7 +19,9 @@ class SchoolClassController {
 
   async index(request, response) {
     try {
-      const schoolClasses = await SchoolClass.findAll();
+      const schoolClasses = await SchoolClass.findAll({
+        order: [['created_at', 'DESC']],
+      });
 
       return response.status(200).json({
         schoolClasses,
