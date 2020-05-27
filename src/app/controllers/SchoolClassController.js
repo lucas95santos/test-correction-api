@@ -46,6 +46,7 @@ class SchoolClassController {
             attributes: ['registration', 'name', 'email'],
           },
         ],
+        order: [['students', 'name', 'ASC']],
       });
 
       if (!schoolClass) {

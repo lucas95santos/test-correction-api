@@ -41,7 +41,9 @@ class StudentController {
 
   async index(request, response) {
     try {
-      const students = await Student.findAll();
+      const students = await Student.findAll({
+        order: [['name', 'ASC']],
+      });
 
       return response.status(200).json({
         students,
