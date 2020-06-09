@@ -4,6 +4,7 @@ class Exam extends Model {
   static init(sequelize) {
     super.init(
       {
+        name: Sequelize.STRING,
         questions_amount: Sequelize.INTEGER,
         status: Sequelize.STRING,
       },
