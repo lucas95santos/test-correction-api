@@ -17,7 +17,7 @@ class ExamController {
   async index(request, response) {
     try {
       const exams = await Exam.findAll({
-        order: [['created_at', 'DESC']],
+        order: [['created_at', 'ASC']],
       });
 
       return response.status(200).json({
