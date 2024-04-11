@@ -21,5 +21,5 @@ class App {
     this.server.use(routes);
   }
 }
-
+// Comentário qualquer
 export default new App().server;
